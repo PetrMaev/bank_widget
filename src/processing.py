@@ -1,4 +1,4 @@
-def filter_by_state(user_info: list[dict], state='EXECUTED') -> list[dict]:
+def filter_by_state(user_info: list, state: str = 'EXECUTED') -> list:
     """ Фильтрует список словарей по опциональному значению ключа state"""
     filtered_user_info = []
     for info in user_info:
@@ -9,7 +9,7 @@ def filter_by_state(user_info: list[dict], state='EXECUTED') -> list[dict]:
     return filtered_user_info
 
 
-def sort_by_date(user_info: list[dict], reversing=True) -> list[dict]:
+def sort_by_date(user_info: list, reversing: bool = True) -> list:
     """ Сортирует список словарей по дате по убыванию"""
     user_info.sort(key=lambda x: x['date'], reverse=reversing)
     return user_info
