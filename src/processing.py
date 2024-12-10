@@ -1,15 +1,18 @@
-def filter_by_state(user_info: list, state: str = 'EXECUTED') -> list:
+from typing import Any
+
+
+def filter_by_state(user_info: list[dict[str, Any]], state: str = 'EXECUTED') -> list[dict[str, Any]]:
     """ Фильтрует список словарей по опциональному значению ключа state"""
     filtered_user_info = []
     for info in user_info:
-        if info['state'] == state:
+        if info.get("state") == state:
             filtered_user_info.append(info)
         else:
             continue
     return filtered_user_info
 
 
-def sort_by_date(user_info: list, reversing: bool = True) -> list:
+def sort_by_date(user_info: list[dict[str, Any]], reversing: bool = True) -> list[dict[str, Any]]:
     """ Сортирует список словарей по дате по убыванию"""
     user_info.sort(key=lambda x: x['date'], reverse=reversing)
     return user_info
