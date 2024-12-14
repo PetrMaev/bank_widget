@@ -12,9 +12,9 @@ def mask_account_card(account_card: str) -> str:
         elif sym.isdigit():
             number += sym
     if len(number) == 16:
-        mask = get_mask_card_number(number)
+        mask = get_mask_card_number(int(number))
     elif len(number) == 20:
-        mask = get_mask_account(number)
+        mask = get_mask_account(int(number))
     return name_account + mask
 
 
