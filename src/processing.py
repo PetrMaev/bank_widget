@@ -3,9 +3,12 @@ from typing import Any
 
 def filter_by_state(user_info: list[dict[str, Any]], state: str = 'EXECUTED') -> list[dict[str, Any]]:
     """ Фильтрует список словарей по опциональному значению ключа state"""
+    if not user_info:
+        raise ValueError("Неверный формат данных")
+
     filtered_user_info = []
     for info in user_info:
-        if info.get("state") == state:
+        if info.get('state') == state:
             filtered_user_info.append(info)
         else:
             continue
@@ -14,7 +17,15 @@ def filter_by_state(user_info: list[dict[str, Any]], state: str = 'EXECUTED') ->
 
 def sort_by_date(user_info: list[dict[str, Any]], reversing: bool = True) -> list[dict[str, Any]]:
     """ Сортирует список словарей по дате по убыванию"""
-    user_info.sort(key=lambda x: x['date'], reverse=reversing)
+    if not user_info:
+        raise ValueError("Неверный формат данных")
+
+    for info in user_info:
+        if info.get('date'):
+            user_info.sort(key=lambda x: x['date'], reverse=reversing)
+        else:
+            continue
+
     return user_info
 
 
