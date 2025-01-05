@@ -1,7 +1,7 @@
 from typing import Any, Iterable
 
 
-def filter_by_currency(transactions: list[dict[Any]], currency: str) -> Iterable:
+def filter_by_currency(transactions: list[dict[Any, Any]], currency: str) -> Iterable:
     """ Возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной """
     for transaction in transactions:
         if not transaction['operationAmount']['currency']['name']:
@@ -13,7 +13,7 @@ def filter_by_currency(transactions: list[dict[Any]], currency: str) -> Iterable
     return (item for item in transactions if item['operationAmount']['currency']['name'] == currency)
 
 
-def transaction_descriptions(transactions: list[dict[Any]]) -> Iterable:
+def transaction_descriptions(transactions: list[dict[Any, Any]]) -> Iterable:
     """ Возвращает описание каждой операции по очереди """
     for transaction in transactions:
         if not transaction:

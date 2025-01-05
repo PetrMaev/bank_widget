@@ -1,0 +1,15 @@
+
+example_function ok
+example_function error: TypeError. Inputs: (), {}
+example_function ok
+example_function error: TypeError. Inputs: (), {}
+example_function ok
+example_function error: TypeError. Inputs: (), {}
+example_function ok
+example_function error: TypeError. Inputs: (), {}
+example_function ok
+example_function error: TypeError. Inputs: (), {}
+example_function error: TypeError. Inputs: ('3', 2), {}
+example_function ok
+example_function ok
+example_function error: TypeError. Inputs: (), {}
