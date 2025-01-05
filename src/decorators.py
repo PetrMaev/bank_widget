@@ -32,18 +32,19 @@ def log(filename: Optional[str]=None)-> Callable:
     return my_decorator
 
 
-# @log()
-# def example_function(a, b):
-#     """ Складывает два числа"""
-#     return a + b
+if __name__ == '__main__':          # pragma: no cover
+    @log()
+    def example_function(a, b):
+        """ Складывает два числа"""
+        return a + b
 
 
-# @log(filename='my_log')
-# def example_function(a, b):
-#     """ Складывает два числа"""
-#     return a + b
+    @log(filename='my_log')
+    def example_function(a, b):
+        """ Складывает два числа"""
+        return a + b
 
-# example_function('3', 2)
-# example_function(3, 2)
-# print(example_function(3, 2))
-# example_function()
+    example_function('3', 2)
+    example_function(3, 2)
+    print(example_function(3, 2))
+    example_function()
