@@ -2,7 +2,11 @@ import json
 
 
 def get_transit_info(path: str) -> list[dict[str, str | int]]:
-    """ Получение данных о финансовых транзакциях """
+    """ Получение данных о финансовых транзакциях из JSON-файла """
+    if not path:
+        raise ValueError('Данные отсутствуют')
+    if not isinstance(path, str):
+        raise TypeError('Ошибка типа данных')
     try:
         with open(path, encoding='utf-8') as operations_file:
             try:
