@@ -11,6 +11,15 @@ def get_sum_transit(transaction: dict[str, Any]) -> float | str:
     payload = {}
     get_api = os.getenv('API_KEY')
     headers = {"apikey": f"{get_api}"}
+    if not transaction:
+        raise ValueError('Информация о транзакциях отсутствует')
+
+    if not isinstance(transaction, dict | list):
+        raise TypeError('Неверные исходные данные')
+
+    if not transaction['operationAmount']:
+        raise KeyError('Информация отсутствует')
+
     try:
         if transaction['operationAmount']['currency']['code'] == 'USD':
             amount_usd = transaction['operationAmount']['amount']

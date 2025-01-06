@@ -47,3 +47,5 @@ example_function ok
 example_function error: TypeError. Inputs: (), {}
 example_function ok
 example_function error: TypeError. Inputs: (), {}
+example_function ok
+example_function error: TypeError. Inputs: (), {}
