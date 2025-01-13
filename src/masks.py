@@ -1,5 +1,5 @@
 def get_mask_card_number(card_number: int) -> str:
-    """ Функиця, которая принимает на вход номер карты и возвращает ее маску"""
+    """Функиця, которая принимает на вход номер карты и возвращает ее маску"""
     if not isinstance(card_number, int):
         raise TypeError("Неверный тип данных")
 
@@ -7,11 +7,20 @@ def get_mask_card_number(card_number: int) -> str:
     if len(card_number_str) < 16 or len(card_number_str) == 0:
         raise ValueError("Неверный формат данных")
     else:
-        return (card_number_str[:4] + " " + card_number_str[4:6] + "**" + " " + "****" + " " + card_number_str[12:])
+        return (
+            card_number_str[:4]
+            + " "
+            + card_number_str[4:6]
+            + "**"
+            + " "
+            + "****"
+            + " "
+            + card_number_str[12:]
+        )
 
 
 def get_mask_account(account_number: int) -> str:
-    """ Функция которая принимает на вход номер счета и возвращает его маску"""
+    """Функция которая принимает на вход номер счета и возвращает его маску"""
     if not isinstance(account_number, int):
         raise TypeError("Неверный тип данных")
 
@@ -22,7 +31,7 @@ def get_mask_account(account_number: int) -> str:
     return mask_account_number
 
 
-if __name__ == '__main__':          # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     print(get_mask_card_number(7000792289606361))
     print(get_mask_account(73654108430135874305))
     # print(get_mask_card_number([]))
