@@ -128,3 +128,26 @@ def my_transactions_no_currency():
             }
         ]
     )
+
+
+@pytest.fixture
+def my_transaction():
+    return {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364',
+            'operationAmount': {'amount': '1100', 'currency': {'name': 'EUR', 'code': 'EUR'}},
+            'description': 'Перевод организации', 'from': 'MasterCard 7158300734726758',
+            'to': 'Счет 35383033474447895560'}
+
+
+@pytest.fixture
+def my_transaction_no_operation():
+    return {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364',
+            'description': 'Перевод организации', 'from': 'MasterCard 7158300734726758',
+            'to': 'Счет 35383033474447895560'}
+
+
+@pytest.fixture
+def my_transaction_usd():
+    return {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364',
+            'operationAmount': {'amount': '8220.37', 'currency': {'name': 'USD', 'code': 'USD'}},
+            'description': 'Перевод организации', 'from': 'MasterCard 7158300734726758',
+            'to': 'Счет 35383033474447895560'}

@@ -1,0 +1,24 @@
+import json
+
+
+def get_transit_info(path: str) -> list[dict[str, str | int]]:
+    """ Получение данных о финансовых транзакциях из JSON-файла """
+    if not path:
+        raise ValueError('Данные отсутствуют')
+    if not isinstance(path, str):
+        raise TypeError('Ошибка типа данных')
+    try:
+        with open(path, encoding='utf-8') as operations_file:
+            transit_info = json.load(operations_file)
+    except json.JSONDecodeError:
+        print('Ошибка декодирования файла')
+        return []
+    except FileNotFoundError:
+        print('Файл не найден')
+        return []
+
+    return transit_info
+
+
+if __name__ == '__main__':  # pragma: no cover
+    print(get_transit_info(r'..\data\operations.json'))

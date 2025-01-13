@@ -4,7 +4,7 @@ from typing import Optional, Callable, Any
 from config import path
 
 
-def log(filename: Optional[str]=None)-> Callable:
+def log(filename: Optional[str] = None) -> Callable:
     """ Декоратор, который записывает логи работы функции """
 
     def my_decorator(func: Callable) -> Callable:
@@ -28,11 +28,13 @@ def log(filename: Optional[str]=None)-> Callable:
                 else:
                     print(f'{func.__name__} ok')
                     return result
+
         return wrapper
+
     return my_decorator
 
 
-if __name__ == '__main__':          # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     @log()
     def example_function(a, b):
         """ Складывает два числа"""
@@ -43,6 +45,7 @@ if __name__ == '__main__':          # pragma: no cover
     def example_function(a, b):
         """ Складывает два числа"""
         return a + b
+
 
     example_function('3', 2)
     example_function(3, 2)
