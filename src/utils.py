@@ -20,7 +20,7 @@ def get_transit_info(path: str) -> list[dict[str, str | int]]:
         logger.error("Ошибка типа данных")
         raise TypeError("Ошибка типа данных")
 
-    logger.info(f"Открытие JSON-файла по пути: {path}")
+    logger.info(f'Открытие JSON-файла по пути: {path}')
     try:
         with open(path, encoding="utf-8") as operations_file:
             transit_info = json.load(operations_file)
@@ -32,7 +32,7 @@ def get_transit_info(path: str) -> list[dict[str, str | int]]:
         logger.error("Ошибка. Файл не найден")
         print("Файл не найден")
         return []
-
+    logger.info('Успешное открытие JSON-файла')
     return transit_info
 
 
