@@ -64,7 +64,6 @@ def test_card_number_generator(start, stop, expected):
     assert list(gen) == expected
 
 
-
 def test_card_number_generator_error():
     with pytest.raises(ValueError) as error:
         list(card_number_generator(3, 1))

@@ -12,7 +12,7 @@ logger.setLevel(logging.DEBUG)
 
 def get_mask_card_number(card_number: int) -> str:
     """ Функция, которая принимает на вход номер карты и возвращает ее маску """
-    logger.info(f'Начало работы функции возврата маски номера карты.')
+    logger.info('Начало работы функции возврата маски номера карты.')
     if not isinstance(card_number, int):
         logger.error('Ошибка. Неверный тип данных.')
         raise TypeError("Неверный тип данных")
@@ -30,7 +30,7 @@ def get_mask_card_number(card_number: int) -> str:
 
 def get_mask_account(account_number: int) -> str:
     """ Функция, которая принимает на вход номер счета и возвращает его маску """
-    logger.info(f'Начало работы функции возврата маски номера счета.')
+    logger.info('Начало работы функции возврата маски номера счета.')
     if not isinstance(account_number, int):
         logger.error('Ошибка. Неверный тип данных.')
         raise TypeError("Неверный тип данных")
