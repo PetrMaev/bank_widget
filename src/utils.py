@@ -9,11 +9,10 @@ def get_transit_info(path: str) -> list[dict[str, str | int]]:
         raise TypeError('Ошибка типа данных')
     try:
         with open(path, encoding='utf-8') as operations_file:
-            try:
-                transit_info = json.load(operations_file)
-            except json.JSONDecodeError:
-                print('Ошибка декодирования файла')
-                return []
+            transit_info = json.load(operations_file)
+    except json.JSONDecodeError:
+        print('Ошибка декодирования файла')
+        return []
     except FileNotFoundError:
         print('Файл не найден')
         return []
