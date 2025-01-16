@@ -1,0 +1,4 @@
+13-01-2025 20:25:06; utils.py; INFO; Открытие JSON-файла по пути: ..\data\operations.json
+13-01-2025 20:25:06; utils.py; INFO; Успешное открытие JSON-файла
+13-01-2025 20:25:06; utils.py; INFO; Открытие JSON-файла по пути: ..\operations.json
+13-01-2025 20:25:06; utils.py; ERROR; Ошибка. Файл не найден

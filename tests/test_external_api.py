@@ -1,7 +1,6 @@
 from unittest.mock import patch
 
 import pytest
-import requests
 
 from src.external_api import get_sum_transit
 
