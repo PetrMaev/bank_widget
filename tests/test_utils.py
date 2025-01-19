@@ -12,10 +12,12 @@ def test_get_transit_info():
         assert result == [{"id": 1, "amount": "100.0"}]
 
 
-def test_get_transit_info_invalid_json_file():
-    mocked_open = mock_open(read_data='[{id: 1, "amount": "100.0"}]')
+def test_get_transit_info_invalid_json_file(capsys):
+    mocked_open = mock_open(read_data='0x00')
     with patch('builtins.open', mocked_open):
-        result = get_transit_info(r'..\data\operations.json')
+        get_transit_info(' ')
+        captured = capsys.readouterr()
+        assert captured.out == 'Ошибка декодирования файла\n'
 
 
 def test_get_transit_info_data_error():
