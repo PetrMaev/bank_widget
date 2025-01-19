@@ -15,14 +15,14 @@ def log(filename: Optional[str] = None) -> Callable:
                     result = func(*args, **kwargs)
                 except Exception as error:
                     with open(
-                        os.path.join(path, f"{filename}.txt"), "a", encoding="utf-8"
+                        os.path.join(path, f"{filename}.txt"), "w", encoding="utf-8"
                     ) as file:
                         file.write(
                             f"{func.__name__} error: {error.__class__.__name__}. Inputs: {args}, {kwargs}\n"
                         )
                 else:
                     with open(
-                        os.path.join(path, f"{filename}.txt"), "a", encoding="utf-8"
+                        os.path.join(path, f"{filename}.txt"), "w", encoding="utf-8"
                     ) as file:
                         file.write(f"{func.__name__} ok\n")
                     return result
@@ -43,11 +43,6 @@ def log(filename: Optional[str] = None) -> Callable:
 
 
 if __name__ == "__main__":  # pragma: no cover
-
-    @log()
-    def example_function(a, b):
-        """Складывает два числа"""
-        return a + b
 
     @log(filename="my_log")
     def example_function(a, b):
