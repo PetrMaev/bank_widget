@@ -7,7 +7,7 @@ load_dotenv()
 
 
 def get_sum_transit(transaction: dict[str, Any]) -> float | str:
-    """Получение суммы транзакции в рублях"""
+    """ Перевод суммы транзакции в рубли с помощью онлайн-конвертера валюты """
     payload = {}
     get_api = os.getenv("API_KEY")
     headers = {"apikey": f"{get_api}"}
@@ -26,17 +26,17 @@ def get_sum_transit(transaction: dict[str, Any]) -> float | str:
             url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=USD&amount={amount_usd}"
             response = requests.get(url, headers=headers, data=payload)
             response.raise_for_status()
-            return response.json()["result"]
         elif transaction["operationAmount"]["currency"]["code"] == "EUR":
             amount_eur = transaction["operationAmount"]["amount"]
             url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount={amount_eur}"
             response = requests.get(url, headers=headers, data=payload)
             response.raise_for_status()
-            return response.json()["result"]
         elif transaction["operationAmount"]["currency"]["code"] == "RUB":
             return float(transaction["operationAmount"]["amount"])
     except requests.exceptions.RequestException:
         return "An error occurred. Please try again later."
+    else:
+        return response.json()["result"]
 
 
 if __name__ == "__main__":  # pragma: no cover
