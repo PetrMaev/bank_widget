@@ -1,17 +1,12 @@
 from typing import Any
 
 import pandas as pd
-import csv
 
 
 def read_csv(path_file: str) -> list[dict[str | Any, str | Any]]:
     """ Считывает данные из csv-файла """
-    result = []
-    with open(path_file, encoding='utf-8') as csv_file:
-        reader = csv.DictReader(csv_file, delimiter=';')
-        for row in reader:
-            result.append(row)
-    return result
+    csv_data = pd.read_csv(path_file, delimiter=';').to_dict(orient='records')
+    return csv_data
 
 
 def read_excel(path_file: str) -> list[dict[str, str | Any]]:
