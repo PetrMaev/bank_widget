@@ -11,7 +11,7 @@ file_handler.setFormatter(file_formatter)
 logger.setLevel(logging.DEBUG)
 
 
-def get_transit_info(path: str) -> list[dict[str, str | int]]:
+def read_json(path: str) -> list[dict[str, str | int]]:
     """Получение данных о финансовых транзакциях из JSON-файла"""
     if not path:
         logger.error("Ошибка. Данные отсутствуют")
@@ -37,5 +37,5 @@ def get_transit_info(path: str) -> list[dict[str, str | int]]:
 
 
 if __name__ == "__main__":  # pragma: no cover
-    print(get_transit_info(r"..\data\operations.json"))
-    print(get_transit_info(r"..\operations.json"))
+    print(read_json(r"..\data\operations.json"))
+    print(read_json(r"..\operations.json"))
