@@ -1,7 +1,7 @@
 import os
 
-from src.decorators import log
 from config import path
+from src.decorators import log
 
 
 def test_log():
