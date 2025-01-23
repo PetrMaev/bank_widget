@@ -16,13 +16,13 @@ def mask_account_card(account_card: str) -> str:
         elif sym.isdigit():
             number += sym
 
-    if len(number) == 0 or len(number) < 16:
+    if len(number) == 0 or len(number) < 12:
         raise ValueError("Неверный формат данных")
 
-    if len(number) == 16:
-        mask = get_mask_card_number(int(number))
-    elif len(number) == 20 or name_account == "Счет ":
+    if len(number) >= 20 and name_account == "Счет ":
         mask = get_mask_account(int(number))
+    elif len(number) >= 14:
+        mask = get_mask_card_number(int(number))
 
     return name_account + mask
 
@@ -32,7 +32,7 @@ def get_date(date: str) -> str:
     Функция, которая принимает на вход данные в формате "2024-03-11T02:26:18.671407"
     и возвращает дату в формате ДД.ММ.ГГГГ
     """
-    if len(date) == 0 or len(date) < 26 or "T" not in date:
+    if len(date) == 0 or len(date) < 12 or "T" not in date:
         raise ValueError("Неверный формат данных")
 
     new_date = date.split("T")[0].split("-")
