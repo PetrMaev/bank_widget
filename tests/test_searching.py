@@ -1,6 +1,4 @@
-import pytest
-
-from src.searching import get_transaction_info, get_number_of_transactions
+from src.searching import get_number_of_transactions, get_transaction_info
 
 
 def test_get_transaction_info(transactions):
