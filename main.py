@@ -122,11 +122,11 @@ def main():
             print(second_string)
 
         if question_5.lower() == 'да':
-            third_string = f'{get_sum_transit(item)} руб.'
-            print(f'Сумма: {third_string}')
+            third_string = get_sum_transit(item)
+            print(f'Сумма: {third_string} руб.\n')
         elif question_5.lower() == 'нет':
             third_string = f'{item['operationAmount']['amount']} {item['operationAmount']['currency']['code']}'
-            print(f'Сумма: {third_string}\n\n')
+            print(f'Сумма: {third_string}\n')
 
 
 if __name__ == '__main__':
