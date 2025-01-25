@@ -48,8 +48,5 @@ def read_excel(path_file: str) -> list[dict[str, str | Any]]:
 
 
 if __name__ == "__main__":  # pragma: no cover
-    # print(read_csv('../data/transactions.csv'))
-    print(read_excel("../data/transactions_excel.xlsx"))
-    print(
-        f"значение ключа: {[x['from'] for x in read_excel('../data/transactions_excel.xlsx')]}"
-    )
+    print(read_csv('../data/transactions.csv'))
+    # print(read_excel("../data/transactions_excel.xlsx"))
