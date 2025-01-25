@@ -18,7 +18,7 @@ def get_mask_card_number(card_number: int) -> str:
         raise TypeError("Неверный тип данных")
 
     card_number_str = str(card_number)
-    if len(card_number_str) < 14 or len(card_number_str) == 0:
+    if len(card_number_str) < 12 or len(card_number_str) == 0:
         logger.error('Ошибка. Неверный формат данных.')
         raise ValueError("Неверный формат данных")
     else:
