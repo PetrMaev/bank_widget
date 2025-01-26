@@ -1,7 +1,7 @@
 import logging
 
 logger = logging.getLogger()
-file_handler = logging.FileHandler(r"../logs/masks.log", "w", encoding="utf-8")
+file_handler = logging.FileHandler(r"./logs/masks.log", "w", encoding="utf-8")
 logger.addHandler(file_handler)
 file_formatter = logging.Formatter(
     "%(asctime)s; %(filename)s; %(levelname)s; %(message)s", "%d-%m-%Y %H:%M:%S"
@@ -12,13 +12,13 @@ logger.setLevel(logging.DEBUG)
 
 def get_mask_card_number(card_number: int) -> str:
     """ Функция, которая принимает на вход номер карты и возвращает ее маску """
-    logger.info('Начало работы функции возврата маски номера карты.')
+    logger.info(f'Начало работы функции возврата маски номера карты: {card_number}.')
     if not isinstance(card_number, int):
         logger.error('Ошибка. Неверный тип данных.')
         raise TypeError("Неверный тип данных")
 
     card_number_str = str(card_number)
-    if len(card_number_str) < 16 or len(card_number_str) == 0:
+    if len(card_number_str) < 12 or len(card_number_str) == 0:
         logger.error('Ошибка. Неверный формат данных.')
         raise ValueError("Неверный формат данных")
     else:
@@ -30,7 +30,7 @@ def get_mask_card_number(card_number: int) -> str:
 
 def get_mask_account(account_number: int) -> str:
     """ Функция, которая принимает на вход номер счета и возвращает его маску """
-    logger.info('Начало работы функции возврата маски номера счета.')
+    logger.info(f'Начало работы функции возврата маски номера счета: {account_number}')
     if not isinstance(account_number, int):
         logger.error('Ошибка. Неверный тип данных.')
         raise TypeError("Неверный тип данных")

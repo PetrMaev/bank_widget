@@ -15,11 +15,8 @@ def get_sum_transit(transaction: dict[str, Any]) -> float | str:
     if not transaction:
         raise ValueError("Информация о транзакциях отсутствует")
 
-    if not isinstance(transaction, dict | list):
+    if not isinstance(transaction, dict):
         raise TypeError("Неверные исходные данные")
-
-    if not transaction["operationAmount"]:
-        raise KeyError("Информация отсутствует")
 
     try:
         if transaction["operationAmount"]["currency"]["code"] == "USD":
@@ -33,6 +30,8 @@ def get_sum_transit(transaction: dict[str, Any]) -> float | str:
             response = requests.get(url, headers=headers, data=payload)
             response.raise_for_status()
         elif transaction["operationAmount"]["currency"]["code"] == "RUB":
+            return float(transaction["operationAmount"]["amount"])
+        else:
             return float(transaction["operationAmount"]["amount"])
     except requests.exceptions.RequestException:
         return "An error occurred. Please try again later."
